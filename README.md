@@ -1,6 +1,15 @@
 # OpenHUD
 
-Heads-Up Display plugin for OpenCode TUI — real-time context usage, tool activity, agent status, and todo progress in your terminal.
+Heads-Up Display plugin — real-time context usage, tool activity, agent status, and todo progress in your terminal.
+
+> **Inspired by [claude-hud](https://github.com/jarrodwatts/claude-hud) by Jarrod Watts.** OpenHUD extends the concept with a monorepo architecture, i18n support, and OpenCode TUI slot integration.
+
+## Status
+
+| Target | Status | Notes |
+|--------|--------|-------|
+| **Claude Code** | Works | Auto-configures via Claude Code hooks |
+| **OpenCode TUI** | WIP | Slot-based rendering not yet functional in TUI mode |
 
 ## Features
 
@@ -14,7 +23,7 @@ Heads-Up Display plugin for OpenCode TUI — real-time context usage, tool activ
 
 ## Screenshots
 
-> *Add screenshots here once the plugin is verified in TUI mode.*
+> *Add screenshots here once the plugin is verified.*
 
 ## Project Structure
 
@@ -44,11 +53,22 @@ openhud-activity (leaf) ─┤──> openhud-core (entry)
 
 ### Prerequisites
 
-- **OpenCode TUI mode** (the plugin does not load in CLI mode)
 - Node.js >= 18
 - npm >= 9
 
-### From local workspace
+### Claude Code
+
+OpenHUD can auto-configure itself for Claude Code. Run the setup command:
+
+```bash
+/hud:setup
+```
+
+This will install the necessary hooks and configuration to display the HUD in your Claude Code sessions.
+
+### OpenCode TUI (WIP)
+
+> Currently, slot-based rendering in OpenCode TUI mode is under development.
 
 Add to `.opencode/opencode.json`:
 
@@ -73,7 +93,7 @@ opencode plugin install @openhud/core
 
 ## Configuration
 
-Open the config dialog with `/hud:configure` in OpenCode.
+Open the config dialog with `/hud:configure`.
 
 | Option | Type | Default | Description |
 |--------|------|---------|-------------|
@@ -110,6 +130,7 @@ Open the config dialog with `/hud:configure` in OpenCode.
 
 | Command | Description |
 |---------|-------------|
+| `/hud:setup` | Auto-configure for Claude Code |
 | `/hud:configure` | Open interactive configuration dialog |
 | `/hud:toggle` | Toggle HUD on/off |
 
@@ -153,6 +174,15 @@ cd packages/openhud-core && npm run clean
 - SolidJS `createSignal` for reactive state management
 - Immutable updates: `setXxx(prev => new Map(prev))`
 - TypeScript `satisfies TuiPluginModule` for export validation
+
+## Acknowledgments
+
+OpenHUD is based on [claude-hud](https://github.com/jarrodwatts/claude-hud) by [Jarrod Watts](https://github.com/jarrodwatts), licensed under MIT. We've extended the original design with:
+
+- Monorepo architecture (core / activity / config separation)
+- Chinese and English i18n
+- OpenCode TUI slot-based rendering
+- Preset configuration system (full / essential / minimal)
 
 ## License
 
