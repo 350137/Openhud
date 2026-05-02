@@ -1,0 +1,40 @@
+{
+  "name": "@openhud/core",
+  "version": "0.1.0",
+  "description": "Heads-Up Display for OpenCode - shows context usage, tool activity, agent status, and todo progress",
+  "type": "module",
+  "main": "dist/bundle.js",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "tsc && node esbuild.config.mjs",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "opencode",
+    "plugin",
+    "hud",
+    "tui",
+    "statusline"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@opencode-ai/plugin": "^1.0.0",
+    "@opencode-ai/sdk": "^1.0.0",
+    "@openhud/activity": "0.1.0",
+    "@openhud/config": "0.1.0"
+  },
+  "devDependencies": {
+    "@opentui/core": "^0.2.1",
+    "@opentui/solid": "^0.2.1",
+    "esbuild": "^0.28.0",
+    "solid-js": "^1.9.12",
+    "typescript": "^5.7.0"
+  }
+}

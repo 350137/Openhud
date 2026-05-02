@@ -1,0 +1,12 @@
+{
+  "name": "openhud",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@types/node": "^25.6.0"
+  }
+}
